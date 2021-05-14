@@ -12,7 +12,7 @@ class SpeedWidget extends Widget {
     document.addEventListener(SPEED_UPDATE_EVENT, this.handleUpdate.bind(this));
   }
 
-  handleUpdate(event: CustomEvent) {
+  private handleUpdate(event: CustomEvent) {
     this.updateWidget(event.detail.speed.speedMultiplayer);
   }
 }

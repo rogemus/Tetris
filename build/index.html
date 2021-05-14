@@ -10,32 +10,44 @@
 </head>
 
 <body>
-  <div class="game">
-    <main class="gameBoard">
-      <canvas width="240" height="400" id="tetris"></canvas>
-    </main>
-    <aside class="gameStats">
-      <div class="widget nextMove">
-        <div class="widget-content">
-          <h2 class="widget-title">Next Piece</h2>
-          <div class="widget-value">
-            <canvas width="80" height="80" id="nextMove"></canvas>
+  <div class="screens">
+    <div class="start-screen">
+      <h1 class="title">Tetris</h1>
+      <ul class="menu">
+        <li class="menu-item game">Start Game</li>
+        <li class="menu-item options">Options</li>
+        <li class="menu-item credits">Credits</li>
+      </ul>
+    </div>
+    <div class="end-screen"></div>
+    <div class="options-screen"></div>
+    <div class="game-screen">
+      <main class="gameBoard">
+        <canvas width="240" height="400" id="tetris"></canvas>
+      </main>
+      <aside class="gameStats">
+        <div class="widget nextMove">
+          <div class="widget-content">
+            <h2 class="widget-title">Next Piece</h2>
+            <div class="widget-value">
+              <canvas width="80" height="80" id="nextMove"></canvas>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="widget score">
-        <div class="widget-content">
-          <h2 class="widget-title">Score</h2>
-          <div class="widget-value"></div>
+        <div class="widget score">
+          <div class="widget-content">
+            <h2 class="widget-title">Score</h2>
+            <div class="widget-value"></div>
+          </div>
         </div>
-      </div>
-      <div class="widget speed">
-        <div class="widget-content">
-          <h2 class="widget-title">Speed Multiplier</h2>
-          <div class="widget-value"></div>
+        <div class="widget speed">
+          <div class="widget-content">
+            <h2 class="widget-title">Speed Multiplier</h2>
+            <div class="widget-value"></div>
+          </div>
         </div>
-      </div>
-    </aside>
+      </aside>
+    </div>
   </div>
   <script src="index.js"></script>
 </body>

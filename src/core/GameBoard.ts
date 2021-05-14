@@ -14,7 +14,6 @@ class GameBoard extends Board {
   constructor(private player: Player) {
     super(document.getElementById('tetris') as HTMLCanvasElement, 12, 20);
     this.attachEvents();
-    this.start();
   }
 
   public start(): void {

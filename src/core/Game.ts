@@ -12,7 +12,7 @@ class Game {
   private speedWidget: SpeedWidget = new SpeedWidget();
 
   public start(): void {
-    this.gameBoard.start();
+    // this.gameBoard.start();
   }
 }
 

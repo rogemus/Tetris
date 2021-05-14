@@ -1,7 +1,7 @@
-import { Position } from 'src/types';
 import { colors } from '../const';
+import { Position } from '../types';
 import Piece from './Piece';
-import Player from './Player';
+
 export const ROWS_REMOVED_EVENT = 'ROWS_REMOVED_EVENT';
 
 class Board {
@@ -14,7 +14,7 @@ class Board {
     protected width: number,
     protected height: number
   ) {
-    this.context = this.canvas.getContext('2d');
+    this.context = this.canvas?.getContext('2d');
     this.context.scale(20, 20);
     this.createBoard();
     this.drawBoard();

@@ -12,7 +12,7 @@ class ScoreWidget extends Widget {
     document.addEventListener(SCORE_UPDATE_EVENT, this.handleUpdate.bind(this));
   }
 
-  handleUpdate(event: CustomEvent) {
+  private handleUpdate(event: CustomEvent) {
     this.updateWidget(event.detail.score.points);
   }
 }
