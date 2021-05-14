@@ -1,0 +1,6 @@
+{
+  "files.autoSave": "onFocusChange",
+  "tsco.useRegions": false,
+  "editor.tabSize": 2,
+  "editor.renderWhitespace": "all",
+}

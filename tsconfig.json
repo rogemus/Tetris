@@ -1,0 +1,31 @@
+{
+	"compilerOptions": {
+		"allowSyntheticDefaultImports": true,
+		"module": "ES6",
+		"target": "es2015",
+		"removeComments": true,
+		"preserveConstEnums": true,
+		"outDir": "./build",
+		"sourceMap": true,
+		"noImplicitAny": true,
+		"moduleResolution": "node",
+		"lib": [
+			"es2015",
+			"es2016",
+			"dom"
+		],
+		"esModuleInterop": true,
+		"baseUrl": ".",
+		"typeRoots": [
+			"./node_modules/@types"
+		]
+	},
+	"include": [
+		"src/**/*"
+	],
+	"exclude": [
+		"node_modules",
+		"build",
+		"dist",
+	]
+}
