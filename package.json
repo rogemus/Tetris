@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "esbuild src/index.ts --bundle --minify --outfile=build/tetris.bundle.js",
-    "start": "esbuild src/index.ts --bundle --serve=3030 --servedir=build --outfile=build/tetris.bundle.js"
+    "build": "esbuild src/index.ts --bundle --minify --outdir=build",
+    "start": "esbuild src/index.ts --bundle --serve=3030 --servedir=build --outdir=build"
   },
   "keywords": [],
   "author": "",
