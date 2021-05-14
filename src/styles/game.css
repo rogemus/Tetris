@@ -12,21 +12,27 @@ body {
   color: #fff;
   font-family: "Righteous", cursive;
   height: 100vh;
-  overflow-y: hidden;
 }
 /* Game */
-.game-screen {
-  display: flex;
-}
-
 /* Screens */
 .screens {
   max-width: 460px;
   margin: 0 auto;
 }
 
+.game-screen .screen-content {
+  display: flex;
+}
+
 .gameStats {
   margin-left: 20px;
+}
+
+.game-screen,
+.options-screen, 
+.start-screen,
+.end-screen {
+  display: none;
 }
 
 /* Widget */
@@ -126,4 +132,8 @@ body {
 .results-score-value {
   color: #f6921e;
   font-size: 50px;
+}
+
+.show {
+  display: block;
 }

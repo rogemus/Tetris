@@ -13,7 +13,7 @@ class SpeedWidget extends Widget {
   }
 
   private handleUpdate(event: CustomEvent) {
-    this.updateWidget(event.detail.speed.speedMultiplayer);
+    this.updateWidget(event.detail.speed.speedMultiplier);
   }
 }
 

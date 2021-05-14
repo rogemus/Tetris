@@ -76,16 +76,18 @@ class Player {
 
   private speedUp(): void {
     if (
-      this.speed.speedLevel < 5 && (
+      this.speed.speedLevel < 7 && (
         this.score.points >= 20 ||
         this.score.points >= 100 ||
         this.score.points >= 300 ||
-        this.score.points >= 800
+        this.score.points >= 600 ||
+        this.score.points >= 900 ||
+        this.score.points >= 1500
       )
     ) {
       this.score.pointsMultiplier += 2;
       this.speed.speedLevel += 1;
-      this.speed.speedMultiplier += 0.5;
+      this.speed.speedMultiplier += 1;
     }
   }
 }
