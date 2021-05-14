@@ -11,7 +11,7 @@ class NextMoveBoard extends Board {
   private start(): void {
     const tick = () => {
       this.drawBoard();
-      this.drawPlayer(this.player.nextPiece, { x: 0, y: 0 });
+      this.drawPlayer(this.player.nextPiece, { x: 1, y: 0 });
       requestAnimationFrame(tick);
     };
 

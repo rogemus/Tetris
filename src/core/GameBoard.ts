@@ -1,5 +1,4 @@
-import { colors } from '../const';
-import { Position, RotationDirection } from '../types';
+import { RotationDirection } from '../types';
 import { getOppositeDirection } from '../utils';
 import Board from './Board';
 import Player from './Player';
@@ -8,7 +7,7 @@ export const ROWS_REMOVED_EVENT = 'ROWS_REMOVED_EVENT';
 
 class GameBoard extends Board {
   private dropCounter = 0;
-  private dropInterval = 1000;
+  private dropInterval = 750;
   private lastTime = 0;
 
   constructor(private player: Player) {
@@ -22,10 +21,11 @@ class GameBoard extends Board {
       this.drawBoard();
       this.drawPlayer(this.player.piece, this.player.pos);
       const deltaTime = time - this.lastTime;
-      this.dropCounter += deltaTime;
       this.lastTime = time;
+      this.dropCounter += deltaTime;
+      const dropInterval = this.dropInterval / this.player.speed.speedMultiplayer;
 
-      if (this.dropCounter > this.dropInterval) {
+      if (this.dropCounter > dropInterval) {
         this.playerDrop();
       }
 

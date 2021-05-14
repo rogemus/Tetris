@@ -1,15 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
+
 <body>
-	<div id="score"></div>
-	<canvas width="80" height="80" id="nextMove"></canvas>
-	<canvas width="240" height="400" id="tetris"></canvas>
-	<script src="tetris.bundle.js"></script>
+  <div class="game">
+    <main class="gameBoard">
+      <canvas width="240" height="400" id="tetris"></canvas>
+    </main>
+    <aside class="gameStats">
+      <div class="widget nextMove">
+        <div class="widget-content">
+          <h2 class="wdiget-title">Next Piece</h2>
+          <div class="widget-value">
+            <canvas width="80" height="80" id="nextMove"></canvas>
+          </div>
+        </div>
+      </div>
+      <div class="widget score">
+        <div class="widget-content">
+          <h2 class="wdiget-title">Score</h2>
+          <div class="widget-value"></div>
+        </div>
+      </div>
+      <div class="widget speed">
+        <div class="widget-content">
+          <h2 class="wdiget-title">Speed Multiplier</h2>
+          <div class="widget-value"></div>
+        </div>
+      </div>
+    </aside>
+  </div>
+  <script src="tetris.bundle.js"></script>
 </body>
+
 </html>
