@@ -23,7 +23,7 @@ class GameBoard extends Board {
       const deltaTime = time - this.lastTime;
       this.lastTime = time;
       this.dropCounter += deltaTime;
-      const dropInterval = this.dropInterval / this.player.speed.speedMultiplayer;
+      const dropInterval = this.dropInterval / this.player.speed.speedMultiplier;
 
       if (this.dropCounter > dropInterval) {
         this.playerDrop();

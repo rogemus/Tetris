@@ -10,14 +10,14 @@ class Player {
   public piece: Piece = new Piece();
   public pos: Position = { x: 4, y: 0 };
   public score = {
-    pointsMultiplayer: 5,
+    pointsMultiplier: 5,
     points: 0,
     combo: 1
   }
 
   public speed = {
     speedLevel: 1,
-    speedMultiplayer: 1
+    speedMultiplier: 1
   }
 
   constructor() {
@@ -48,7 +48,7 @@ class Player {
 
   private addScore(points: number): void {
     this.score.combo = points;
-    this.score.points += points * this.score.combo * this.score.pointsMultiplayer;
+    this.score.points += points * this.score.combo * this.score.pointsMultiplier;
   }
 
   private attachEvents(): void {
@@ -83,9 +83,9 @@ class Player {
         this.score.points >= 800
       )
     ) {
-      this.score.pointsMultiplayer += 2;
+      this.score.pointsMultiplier += 2;
       this.speed.speedLevel += 1;
-      this.speed.speedMultiplayer += 0.5;
+      this.speed.speedMultiplier += 0.5;
     }
   }
 }
