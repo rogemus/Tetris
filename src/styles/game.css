@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
 
 * {
   box-sizing: border-box;
@@ -98,5 +98,32 @@ body {
 
 .menu-item:hover {
   background: #f6921e;
-  color: #26243a
+  color: #26243a;
+}
+
+/* End Screen */
+.end-screen .title {
+  font-size: 60px;
+}
+
+/* Results */
+.results {
+  background: #26243a;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.results-icon {
+  font-size: 100px;
+  text-align: center;
+}
+
+.results-score {
+  text-align: center;
+  font-size: 30px;
+}
+
+.results-score-value {
+  color: #f6921e;
+  font-size: 50px;
 }
