@@ -9,6 +9,7 @@ class GameBoard extends Board {
   private dropCounter = 0;
   private dropInterval = 750;
   private lastTime = 0;
+  private paused = false;
 
   constructor(private player: Player) {
     super(document.getElementById('tetris') as HTMLCanvasElement, 12, 20);
@@ -18,15 +19,17 @@ class GameBoard extends Board {
 
   public start(): void {
     const tick = (time = 0) => {
-      this.drawBoard();
-      this.drawPlayer(this.player.piece, this.player.pos);
-      const deltaTime = time - this.lastTime;
-      this.lastTime = time;
-      this.dropCounter += deltaTime;
-      const dropInterval = this.dropInterval / this.player.speed.speedMultiplier;
+      if (!this.paused) {
+        this.drawBoard();
+        this.drawPlayer(this.player.piece, this.player.pos);
+        const deltaTime = time - this.lastTime;
+        this.lastTime = time;
+        this.dropCounter += deltaTime;
+        const dropInterval = this.dropInterval / this.player.speed.speedMultiplier;
 
-      if (this.dropCounter > dropInterval) {
-        this.playerDrop();
+        if (this.dropCounter > dropInterval) {
+          this.playerDrop();
+        }
       }
 
       requestAnimationFrame(tick);
@@ -56,6 +59,10 @@ class GameBoard extends Board {
         }
         case 'e': {
           this.playerRotate('R');
+          break;
+        }
+        case 'Escape': {
+          this.paused = !this.paused;
           break;
         }
       }
