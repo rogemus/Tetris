@@ -1,72 +1,65 @@
+import { Position } from 'src/types';
+import { colors } from '../const';
+import Piece from './Piece';
 import Player from './Player';
-
 export const ROWS_REMOVED_EVENT = 'ROWS_REMOVED_EVENT';
 
 class Board {
-  public board: number[][] = [];
+  private context: CanvasRenderingContext2D;
 
-  constructor(private width: number, private height: number) {
+  protected board: number[][] = [];
+
+  constructor(
+    protected canvas: HTMLCanvasElement,
+    protected width: number,
+    protected height: number
+  ) {
+    this.context = this.canvas.getContext('2d');
+    this.context.scale(20, 20);
     this.createBoard();
+    this.drawBoard();
   }
 
-  public isColliding(player: Player): boolean {
-    const shape = player.piece.shape;
-    const position = player.pos;
-
-    for (let y = 0; y < shape.length; y++) {
-      for (let x = 0; x < shape[y].length; x++) {
-        if (
-          shape[y][x] !== 0 &&
-          (
-            this.board[y + position.y] &&
-            this.board[y + position.y][x + position.x]
-          ) !== 0
-        ) {
-          return true;
-        }
-      }
+  protected createBoard(): void {
+    for (let i = 0; i < this.height; i++) {
+      this.board.push(new Array(this.width).fill(0));
     }
-
-    return false;
   }
 
-  public merge(player: Player): void {
-    const shape = player.piece.shape;
+  protected drawBlock(x: number, y: number, color: string): void {
+    this.context.roundRect(
+      x,
+      y,
+      1 - 0.13,
+      1 - 0.13,
+      0.2
+    );
+    this.context.fillStyle = color;
+    this.context.fill();
+  }
 
-    shape.forEach((row, y) => {
+  protected drawBoard() {
+    this.context.fillStyle = '#141020';
+    this.context.fillRect(0, 0, this.canvas.width, this.canvas.height);
+    this.board.forEach((row, y) => {
       row.forEach((value, x) => {
-        if (value !== 0) {
-          this.board[y + player.pos.y][x + player.pos.x] = value;
-        }
+        this.drawBlock(x, y, colors[value])
       });
     });
   }
 
-  public sweep(): void {
-    let removedCount = 0;
-    let tempBoard = [...this.board];
-
-    tempBoard = tempBoard.filter((row) => row.includes(0));
-    removedCount = this.board.length - tempBoard.length;
-
-    if (removedCount > 0) {
-      for (let newRow = 0; newRow < removedCount; newRow++) {
-        tempBoard.unshift(new Array(this.width).fill(0));
-      }
-
-      const event = new CustomEvent(ROWS_REMOVED_EVENT, {
-        detail: { removedCount }
+  protected drawPlayer(piece: Piece, offset: Position) {
+    piece.shape.forEach((row, y) => {
+      row.forEach((value, x) => {
+        if (value > 0) {
+          this.drawBlock(
+            x + offset.x,
+            y + offset.y,
+            colors[value]
+          )
+        }
       });
-
-      document.dispatchEvent(event);
-      this.board = tempBoard;
-    }
-  }
-
-  private createBoard(): void {
-    for (let i = 0; i < this.height; i++) {
-      this.board.push(new Array(this.width).fill(0));
-    }
+    });
   }
 }
 

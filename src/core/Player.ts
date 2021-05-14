@@ -1,5 +1,5 @@
 import { Position, RotationDirection } from '../types';
-import { ROWS_REMOVED_EVENT } from './Board';
+import { ROWS_REMOVED_EVENT } from './GameBoard';
 import Piece from './Piece';
 import Score from './Score';
 
