@@ -6,8 +6,7 @@ import Game from './Game';
 import StartScreen from './StartScreen';
 
 class Tetris {
-  private game: Game = new Game();
-  private startScreen: StartScreen = new StartScreen(this.game);
+  private startScreen: StartScreen = new StartScreen();
   private endScreen: EndScreen = new EndScreen()
 }
 

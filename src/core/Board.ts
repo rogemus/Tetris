@@ -6,18 +6,31 @@ export const ROWS_REMOVED_EVENT = 'ROWS_REMOVED_EVENT';
 
 class Board {
   private context: CanvasRenderingContext2D;
+  protected canvas: HTMLCanvasElement;
 
   protected board: number[][] = [];
+  protected scale: number = 20;
 
   constructor(
-    protected canvas: HTMLCanvasElement,
+    protected canvasParent: HTMLDivElement,
+    protected canvasId: string,
     protected width: number,
     protected height: number
   ) {
-    this.context = this.canvas?.getContext('2d');
-    this.context.scale(20, 20);
+    this.createCanvas();
     this.createBoard();
     this.drawBoard();
+  }
+  private createCanvas(): void {
+    this.canvasParent.innerHTML = '';
+    this.canvas = document.createElement('canvas');
+    this.canvas.id = this.canvasId;
+    this.canvas.width = this.width * this.scale;
+    this.canvas.height = this.height * this.scale;
+    this.canvasParent.appendChild(this.canvas);
+    this.context = this.canvas?.getContext('2d');
+    this.context.clearRect(0, 0, this.width, this.height);
+    this.context.scale(this.scale, this.scale);
   }
 
   protected createBoard(): void {

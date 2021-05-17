@@ -4,9 +4,9 @@ import { RotationDirection, Shape } from '../types';
 class Piece {
   private pieces: Shape[] = shapes;
 
+  public colorId: number;
   public id: number;
   public shape: Shape;
-  public colorId: number;
 
   constructor() {
     this.id = this.getRandomIndex(0, 6);

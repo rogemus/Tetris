@@ -3,7 +3,12 @@ import Player from './Player';
 
 class NextMoveBoard extends Board {
   constructor(private player: Player) {
-    super(document.getElementById('nextMove') as HTMLCanvasElement, 4, 4);
+    super(
+      document.querySelector('.nextMove-board') as HTMLDivElement,
+      'nextMove',
+      4,
+      4
+    );
     this.drawPlayer(this.player.nextPiece, { x: 0, y: 0 });
     this.start();
   }

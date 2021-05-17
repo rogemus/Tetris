@@ -4,6 +4,7 @@ import Board from './Board';
 import Player from './Player';
 
 export const ROWS_REMOVED_EVENT = 'ROWS_REMOVED_EVENT';
+export const END_GAME_EVENT = 'END_GAME_EVENT';
 
 class GameBoard extends Board {
   private dropCounter = 0;
@@ -12,7 +13,12 @@ class GameBoard extends Board {
   private paused = false;
 
   constructor(private player: Player) {
-    super(document.getElementById('tetris') as HTMLCanvasElement, 12, 20);
+    super(
+      document.querySelector('.game-board') as HTMLDivElement,
+      'tetris',
+      12,
+      20
+    );
     this.attachEvents();
   }
 
@@ -125,7 +131,14 @@ class GameBoard extends Board {
     this.player.reset();
 
     if (this.isColliding(this.player)) {
-      console.log('end');
+      this.paused = true;
+      const event = new CustomEvent(END_GAME_EVENT, {
+        detail: {
+          score: this.player.score,
+        }
+      });
+
+      document.dispatchEvent(event);
     }
   }
 

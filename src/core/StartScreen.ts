@@ -1,14 +1,23 @@
 import { ScreenSelector } from '../types';
 import Game from './Game';
+import { END_GAME_EVENT } from './GameBoard';
 import Screen from './Screen';
 
 class StartScreen extends Screen {
-  constructor(private game: Game) {
+  private game: Game;
+
+  constructor() {
     super();
+    this.game = new Game()
     this.attachEvents();
   }
 
-  attachEvents() {
+  public handleEnd(): void {
+    console.log('end');
+    this.game = new Game();
+  }
+
+  private attachEvents() {
     const links = document.querySelectorAll<HTMLLIElement>('.menu-item');
 
     links.forEach((link) => {
@@ -22,7 +31,9 @@ class StartScreen extends Screen {
           this.game.start();
         }
       })
-    })
+    });
+
+    document.addEventListener(END_GAME_EVENT, this.handleEnd.bind(this));
   }
 }
 

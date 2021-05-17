@@ -29,7 +29,7 @@ body {
 }
 
 .game-screen,
-.options-screen, 
+.options-screen,
 .start-screen,
 .end-screen {
   display: none;
@@ -136,4 +136,26 @@ body {
 
 .show {
   display: block;
+}
+
+.game-restart {
+  margin-top: 20px;
+}
+
+.btn {
+  background: #26243a;
+  margin-bottom: 20px;
+  padding: 15px 30px;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #f6921e;
+  width: 100%;
+  border: 0;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.btn:hover {
+  background: #f6921e;
+  color: #26243a;
 }
