@@ -7,9 +7,9 @@ export type RotationDirection = 'R' | 'L';
 
 export type Shape = number[][];
 
-export type SCREEN = 'GAME' | 'START' | 'END' | 'OPTIONS' | 'CREDITS';
-
-export type SCREEN_EVENT = {
-  screen: SCREEN,
-  data: any
-}
+export type ScreenSelector = 
+  '.game-screen' |
+  '.options-screen' |
+  '.start-screen' |
+  '.end-screen' |
+  '.credits-screen';
