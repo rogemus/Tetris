@@ -2,6 +2,8 @@ import { RotationDirection } from '../types';
 import { getOppositeDirection } from '../utils';
 import Board from './Board';
 import Player from './Player';
+import Music from './Music';
+import RowSFX from './RowSFX';
 
 export const ROWS_REMOVED_EVENT = 'ROWS_REMOVED_EVENT';
 export const END_GAME_EVENT = 'END_GAME_EVENT';
@@ -11,6 +13,9 @@ class GameBoard extends Board {
   private dropInterval = 750;
   private lastTime = 0;
   private paused = false;
+  // FIXME: Adding music multiple time to page
+  private music = new Music();
+  private sfx = new RowSFX();
 
   constructor(private player: Player) {
     super(
@@ -39,7 +44,7 @@ class GameBoard extends Board {
 
       requestAnimationFrame(tick);
     };
-
+    this.music.play();
     tick();
   }
 
@@ -137,6 +142,7 @@ class GameBoard extends Board {
           score: this.player.score,
         }
       });
+      this.music.stop();
 
       document.dispatchEvent(event);
     }
@@ -177,6 +183,7 @@ class GameBoard extends Board {
 
       document.dispatchEvent(event);
       this.board = tempBoard;
+      this.sfx.play();
     }
   }
 }

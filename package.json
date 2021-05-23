@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "esbuild src/index.ts --bundle --minify --outdir=build",
-    "start": "esbuild src/index.ts --bundle --serve=3030 --servedir=build --outdir=build"
+    "build": "esbuild src/index.ts --bundle --minify --loader:.mp3=file --loader:.wav=file --outdir=build",
+    "start": "esbuild src/index.ts --bundle --serve=3030 --servedir=build --loader:.mp3=file --loader:.wav=file --outdir=build"
   },
   "keywords": [],
   "author": "",
