@@ -13,8 +13,7 @@ class StartScreen extends Screen {
   }
 
   public handleEnd(): void {
-    console.log('end');
-    this.game = new Game();
+    this.game.restart();
   }
 
   private attachEvents() {

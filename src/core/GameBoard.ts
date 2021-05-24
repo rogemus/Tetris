@@ -12,9 +12,9 @@ class GameBoard extends Board {
   private dropCounter = 0;
   private dropInterval = 750;
   private lastTime = 0;
-  private paused = false;
   // FIXME: Adding music multiple time to page
   private music = new Music();
+  private paused = false;
   private sfx = new RowSFX();
 
   constructor(private player: Player) {
@@ -77,6 +77,12 @@ class GameBoard extends Board {
         }
       }
     });
+  }
+
+  public restart() {
+    this.createBoard();
+    this.player.clear();
+    this.paused = false;
   }
 
   private isColliding(player: Player): boolean {

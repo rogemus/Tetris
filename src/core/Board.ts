@@ -34,6 +34,8 @@ class Board {
   }
 
   protected createBoard(): void {
+    this.board = [];
+
     for (let i = 0; i < this.height; i++) {
       this.board.push(new Array(this.width).fill(0));
     }

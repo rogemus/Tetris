@@ -38,6 +38,17 @@ class Player {
     this.nextPiece = new Piece();
   }
 
+  public clear() {
+    this.pos = { x: 4, y: 0 };
+    this.piece = new Piece();
+    this.nextPiece = new Piece();
+    this.score = {
+      pointsMultiplier: 5,
+      points: 0,
+      combo: 1
+    }
+  }
+
   public revertDrop(): void {
     this.pos.y--;
   }
