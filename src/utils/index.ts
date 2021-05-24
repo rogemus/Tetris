@@ -7,3 +7,11 @@ export const getOppositeDirection = (direction: RotationDirection): RotationDire
 
   return 'L';
 };
+
+export const dispatchEvent = (eventName: string, data: any): void => {
+  const event = new CustomEvent(eventName, {
+    detail: data
+  });
+
+  document.dispatchEvent(event);
+}

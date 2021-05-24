@@ -1,8 +1,8 @@
-import { colors } from '../const';
-import { Position } from '../types';
-import Piece from './Piece';
+import './Canvas';
 
-export const ROWS_REMOVED_EVENT = 'ROWS_REMOVED_EVENT';
+import { colors } from '../../const';
+import { Position } from '../../types';
+import Piece from './Piece';
 
 class Board {
   private context: CanvasRenderingContext2D;

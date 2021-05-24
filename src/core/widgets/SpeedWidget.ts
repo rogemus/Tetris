@@ -1,5 +1,5 @@
+import { SPEED_UPDATE_EVENT } from '../game/events';
 import Widget from './Widget';
-import { SPEED_UPDATE_EVENT } from './Player';
 
 class SpeedWidget extends Widget {
   constructor() {

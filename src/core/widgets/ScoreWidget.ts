@@ -1,5 +1,5 @@
+import { SCORE_UPDATE_EVENT } from '../game/events';
 import Widget from './Widget';
-import { SCORE_UPDATE_EVENT } from './Player';
 
 class ScoreWidget extends Widget {
   constructor() {

@@ -1,7 +1,7 @@
-import Board from './Board';
-import Player from './Player';
+import Board from '../game/Board';
+import Player from '../game/Player';
 
-class NextMoveBoard extends Board {
+class NextMoveWidget extends Board {
   constructor(private player: Player) {
     super(
       document.querySelector('.nextMove-board') as HTMLDivElement,
@@ -24,4 +24,4 @@ class NextMoveBoard extends Board {
   }
 }
 
-export default NextMoveBoard;
+export default NextMoveWidget;

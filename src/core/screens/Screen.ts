@@ -1,5 +1,4 @@
-
-import { ScreenSelector } from '../types';
+import { ScreenSelector } from '../../types';
 
 class Screen {
   public navigateTo(screenSelector: ScreenSelector) {

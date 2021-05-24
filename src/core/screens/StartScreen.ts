@@ -1,6 +1,6 @@
-import { ScreenSelector } from '../types';
-import Game from './Game';
-import { END_GAME_EVENT } from './GameBoard';
+import { ScreenSelector } from '../../types';
+import { END_GAME_EVENT } from '../game/events';
+import Game from './GameScreen';
 import Screen from './Screen';
 
 class StartScreen extends Screen {

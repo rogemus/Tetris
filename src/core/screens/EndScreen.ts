@@ -1,4 +1,4 @@
-import { END_GAME_EVENT } from './GameBoard';
+import { END_GAME_EVENT } from '../game/events';
 import Screen from './Screen';
 
 class EndScreen extends Screen {

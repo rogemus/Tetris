@@ -1,5 +1,5 @@
-import { shapes } from '../const';
-import { RotationDirection, Shape } from '../types';
+import { shapes } from '../../const';
+import { RotationDirection, Shape } from '../../types';
 
 class Piece {
   private pieces: Shape[] = shapes;

@@ -1,9 +1,8 @@
-import './Canvas';
 import '../styles/game.css';
 
-import EndScreen from './EndScreen';
-import Game from './Game';
-import StartScreen from './StartScreen';
+import EndScreen from './screens/EndScreen';
+import Game from './screens/GameScreen';
+import StartScreen from './screens/StartScreen';
 
 class Tetris {
   private startScreen: StartScreen = new StartScreen();

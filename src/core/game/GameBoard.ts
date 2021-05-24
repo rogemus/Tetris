@@ -1,21 +1,18 @@
-import { RotationDirection } from '../types';
-import { getOppositeDirection } from '../utils';
+import { RotationDirection } from '../../types';
+import { dispatchEvent, getOppositeDirection } from '../../utils';
+import ClearSFX from '../audio/ClearSFX';
+import Theme from '../audio/Theme';
 import Board from './Board';
+import { END_GAME_EVENT, ROWS_REMOVED_EVENT } from './events';
 import Player from './Player';
-import Music from './Music';
-import RowSFX from './RowSFX';
-
-export const ROWS_REMOVED_EVENT = 'ROWS_REMOVED_EVENT';
-export const END_GAME_EVENT = 'END_GAME_EVENT';
 
 class GameBoard extends Board {
   private dropCounter = 0;
   private dropInterval = 750;
   private lastTime = 0;
-  // FIXME: Adding music multiple time to page
-  private music = new Music();
+  private theme = new Theme();
   private paused = false;
-  private sfx = new RowSFX();
+  private sfx = new ClearSFX();
 
   constructor(private player: Player) {
     super(
@@ -44,7 +41,7 @@ class GameBoard extends Board {
 
       requestAnimationFrame(tick);
     };
-    this.music.play();
+    this.theme.play();
     tick();
   }
 
@@ -143,14 +140,10 @@ class GameBoard extends Board {
 
     if (this.isColliding(this.player)) {
       this.paused = true;
-      const event = new CustomEvent(END_GAME_EVENT, {
-        detail: {
-          score: this.player.score,
-        }
+      this.theme.stop();
+      dispatchEvent(END_GAME_EVENT, {
+        score: this.player.score,
       });
-      this.music.stop();
-
-      document.dispatchEvent(event);
     }
   }
 
@@ -183,12 +176,8 @@ class GameBoard extends Board {
         tempBoard.unshift(new Array(this.width).fill(0));
       }
 
-      const event = new CustomEvent(ROWS_REMOVED_EVENT, {
-        detail: { removedCount }
-      });
-
-      document.dispatchEvent(event);
       this.board = tempBoard;
+      dispatchEvent(ROWS_REMOVED_EVENT, { removedCount })
       this.sfx.play();
     }
   }

@@ -1,9 +1,7 @@
-import { Position, RotationDirection } from '../types';
-import { ROWS_REMOVED_EVENT } from './GameBoard';
+import { dispatchEvent } from 'src/utils';
+import { Position, RotationDirection } from '../../types';
+import { ROWS_REMOVED_EVENT, SCORE_UPDATE_EVENT, SPEED_UPDATE_EVENT } from './events';
 import Piece from './Piece';
-
-export const SCORE_UPDATE_EVENT = 'SCORE_UPDATE_EVENT';
-export const SPEED_UPDATE_EVENT = 'SPEED_UPDATE_EVENT';
 
 class Player {
   public nextPiece: Piece = new Piece();
@@ -47,6 +45,12 @@ class Player {
       points: 0,
       combo: 1
     }
+    dispatchEvent(SCORE_UPDATE_EVENT, {
+      score: this.score
+    });
+    dispatchEvent(SPEED_UPDATE_EVENT, {
+      speed: this.speed
+    });
   }
 
   public revertDrop(): void {
@@ -69,20 +73,12 @@ class Player {
   private handlePointsChange(e: CustomEvent): void {
     this.addScore(e.detail.removedCount);
     this.speedUp();
-
-    const scoreEvent = new CustomEvent(SCORE_UPDATE_EVENT, {
-      detail: {
-        score: this.score
-      }
+    dispatchEvent(SCORE_UPDATE_EVENT, {
+      score: this.score
     });
-    const speedEvent = new CustomEvent(SPEED_UPDATE_EVENT, {
-      detail: {
-        speed: this.speed
-      }
+    dispatchEvent(SPEED_UPDATE_EVENT, {
+      speed: this.speed
     });
-
-    document.dispatchEvent(scoreEvent);
-    document.dispatchEvent(speedEvent);
   }
 
   private speedUp(): void {

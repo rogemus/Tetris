@@ -1,8 +1,8 @@
-import Player from './Player';
-import GameBoard from './GameBoard';
-import NextMoveBoard from './NextMoveBoard';
-import ScoreWidget from './ScoreWidget';
-import SpeedWidget from './SpeedWidget';
+import GameBoard from '../game/GameBoard';
+import Player from '../game/Player';
+import NextMoveBoard from '../widgets/NextMoveWidget';
+import ScoreWidget from '../widgets/ScoreWidget';
+import SpeedWidget from '../widgets/SpeedWidget';
 
 class GameScreen {
   private player: Player = new Player();
