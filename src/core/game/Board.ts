@@ -9,7 +9,7 @@ class Board {
   protected canvas: HTMLCanvasElement;
 
   protected board: number[][] = [];
-  protected scale: number = 20;
+  protected scale = 20;
 
   constructor(
     protected canvasParent: HTMLDivElement,
@@ -53,25 +53,21 @@ class Board {
     this.context.fill();
   }
 
-  protected drawBoard() {
+  protected drawBoard(): void {
     this.context.fillStyle = '#141020';
     this.context.fillRect(0, 0, this.canvas.width, this.canvas.height);
     this.board.forEach((row, y) => {
       row.forEach((value, x) => {
-        this.drawBlock(x, y, colors[value])
+        this.drawBlock(x, y, colors[value]);
       });
     });
   }
 
-  protected drawPlayer(piece: Piece, offset: Position) {
+  protected drawPlayer(piece: Piece, offset: Position): void {
     piece.shape.forEach((row, y) => {
       row.forEach((value, x) => {
         if (value > 0) {
-          this.drawBlock(
-            x + offset.x,
-            y + offset.y,
-            colors[value]
-          )
+          this.drawBlock(x + offset.x, y + offset.y, colors[value]);
         }
       });
     });

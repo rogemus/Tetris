@@ -3,7 +3,7 @@ import Audio from './Audio';
 
 class ClearSFX extends Audio {
   constructor() {
-    super(clearSFX, 'clearSFX')
+    super(clearSFX, 'clearSFX');
   }
 }
 

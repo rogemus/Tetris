@@ -4,11 +4,10 @@ import Game from './GameScreen';
 import Screen from './Screen';
 
 class StartScreen extends Screen {
-  private game: Game;
+  private game: Game = new Game();
 
   constructor() {
     super();
-    this.game = new Game()
     this.attachEvents();
   }
 
@@ -24,12 +23,12 @@ class StartScreen extends Screen {
       const screenSelector = `.${screenType}-screen` as ScreenSelector;
 
       link.addEventListener('click', () => {
-        this.navigateTo(screenSelector)
+        this.navigateTo(screenSelector);
 
         if (screenSelector === '.game-screen') {
           this.game.start();
         }
-      })
+      });
     });
 
     document.addEventListener(END_GAME_EVENT, this.handleEnd.bind(this));

@@ -8,10 +8,10 @@ export const getOppositeDirection = (direction: RotationDirection): RotationDire
   return 'L';
 };
 
-export const dispatchEvent = (eventName: string, data: any): void => {
+export const dispatchEvent = (eventName: string, data: unknown): void => {
   const event = new CustomEvent(eventName, {
-    detail: data
+    detail: data,
   });
 
   document.dispatchEvent(event);
-}
+};

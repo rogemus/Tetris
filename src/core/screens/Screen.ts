@@ -1,7 +1,7 @@
 import { ScreenSelector } from '../../types';
 
 class Screen {
-  public navigateTo(screenSelector: ScreenSelector) {
+  public navigateTo(screenSelector: ScreenSelector): void {
     const screen = document.querySelector(screenSelector);
     const active = document.querySelector('.show');
 

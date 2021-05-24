@@ -5,13 +5,23 @@
   "main": "index.js",
   "scripts": {
     "build": "esbuild src/index.ts --bundle --minify --loader:.mp3=file --loader:.wav=file --outdir=build",
-    "start": "esbuild src/index.ts --bundle --serve=3030 --servedir=build --loader:.mp3=file --loader:.wav=file --outdir=build"
+    "start": "esbuild src/index.ts --bundle --serve=3030 --servedir=build --loader:.mp3=file --loader:.wav=file --outdir=build",
+    "lint": "eslint ./src --ext .ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.24.0",
+    "@typescript-eslint/parser": "^4.24.0",
     "esbuild": "^0.11.20",
-    "typescript": "^4.2.4"
+    "eslint": "^7.27.0",
+    "postcss": "^8.3.0",
+    "postcss-loader": "^5.3.0",
+    "postcss-preset-env": "^6.7.0",
+    "typescript": "^4.2.4",
+    "webpack": "^5.37.1",
+    "webpack-cli": "^4.7.0",
+    "webpack-dev-server": "^3.11.2"
   }
 }

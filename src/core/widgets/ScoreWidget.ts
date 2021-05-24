@@ -3,7 +3,7 @@ import Widget from './Widget';
 
 class ScoreWidget extends Widget {
   constructor() {
-    super('.score')
+    super('.score');
     this.updateWidget('0');
     this.attachEvents();
   }

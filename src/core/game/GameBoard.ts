@@ -76,7 +76,7 @@ class GameBoard extends Board {
     });
   }
 
-  public restart() {
+  public restart(): void {
     this.createBoard();
     this.player.clear();
     this.paused = false;
@@ -177,7 +177,7 @@ class GameBoard extends Board {
       }
 
       this.board = tempBoard;
-      dispatchEvent(ROWS_REMOVED_EVENT, { removedCount })
+      dispatchEvent(ROWS_REMOVED_EVENT, { removedCount });
       this.sfx.play();
     }
   }

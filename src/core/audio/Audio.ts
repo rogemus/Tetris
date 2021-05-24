@@ -11,11 +11,11 @@ class Audio {
     document.body.appendChild(this.audio);
   }
 
-  public play() {
+  public play(): void {
     this.audio.play();
   }
 
-  public stop() {
+  public stop(): void {
     this.audio.pause();
   }
 }

@@ -9,7 +9,7 @@ class Widget {
     this.contentElement = this.element.querySelector('.widget-content');
   }
 
-  protected updateWidget(value: string) {
+  protected updateWidget(value: string): void {
     this.valueElement.innerHTML = value;
   }
 }

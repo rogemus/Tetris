@@ -1,7 +1,6 @@
 import '../styles/game.css';
 
 import EndScreen from './screens/EndScreen';
-import Game from './screens/GameScreen';
 import StartScreen from './screens/StartScreen';
 
 class Tetris {

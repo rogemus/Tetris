@@ -30,13 +30,13 @@ class Player {
     this.pos.x += direction;
   }
 
-  public reset() {
+  public reset(): void {
     this.pos = { x: 4, y: 0 };
     this.piece = this.nextPiece;
     this.nextPiece = new Piece();
   }
 
-  public clear() {
+  public clear(): void {
     this.pos = { x: 4, y: 0 };
     this.piece = new Piece();
     this.nextPiece = new Piece();
@@ -44,7 +44,7 @@ class Player {
       pointsMultiplier: 5,
       points: 0,
       combo: 1
-    }
+    };
     dispatchEvent(SCORE_UPDATE_EVENT, {
       score: this.score
     });
