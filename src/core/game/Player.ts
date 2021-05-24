@@ -1,5 +1,5 @@
-import { dispatchEvent } from 'src/utils';
 import { Position, RotationDirection } from '../../types';
+import { dispatchEvent } from '../../utils';
 import { ROWS_REMOVED_EVENT, SCORE_UPDATE_EVENT, SPEED_UPDATE_EVENT } from './events';
 import Piece from './Piece';
 

@@ -1,2 +1,5 @@
 node_modules
-*.bundle.js
+build/*.bundle.js
+build/*.mp3
+build/*.wav
+build/*.css
