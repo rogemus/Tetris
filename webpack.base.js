@@ -1,5 +1,6 @@
 const ESLintPlugin = require('eslint-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HtmlWebPackPlugin = require('html-webpack-plugin');
 
 const path = require('path');
 
@@ -16,38 +17,12 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css$/,
+        test: /\.s[ac]ss$/i,
         use: [
           MiniCssExtractPlugin.loader,
           "css-loader",
-          {
-            loader: "postcss-loader",
-            options: {
-              postcssOptions: {
-                plugins: [
-                  [
-                    "postcss-preset-env",
-                    {},
-                  ],
-                ],
-              },
-            },
-          },
+          "sass-loader"
         ],
-      },
-      {
-        test: /\.(ts|tsx)$/,
-        enforce: 'pre',
-        use: [
-          {
-            options: {
-              eslintPath: require.resolve('eslint'),
-
-            },
-            loader: require.resolve('eslint-loader'),
-          },
-        ],
-        exclude: /node_modules/,
       },
       {
         test: /\.(mp3|wav)/,
@@ -70,7 +45,10 @@ module.exports = {
       threads: true
     }),
     new MiniCssExtractPlugin({
-      filename: 'tetris.bunle.css'
-    })
+      filename: 'tetris.bundle.css'
+    }),
+    new HtmlWebPackPlugin({
+      template: path.resolve(__dirname, 'src/index.html')
+    }),
   ],
 }

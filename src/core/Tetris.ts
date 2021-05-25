@@ -1,4 +1,4 @@
-import '../styles/game.css';
+import '../styles/game.scss';
 
 import EndScreen from './screens/EndScreen';
 import StartScreen from './screens/StartScreen';
