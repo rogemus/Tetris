@@ -10,7 +10,8 @@
     "serve": "webpack serve --config webpack.dev.js",
     "server:dev": "nodemon server/main.js",
     "server:prod": "node server/main.js",
-    "start": "yarn run build:prod && yarn run server:prod"
+    "start": "yarn run server:prod",
+    "heroku-postbuild": "yarn run build:prod"
   },
   "keywords": [],
   "author": "",
