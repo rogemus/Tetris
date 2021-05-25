@@ -3,7 +3,7 @@ import Audio from './Audio';
 
 class Theme extends Audio {
   constructor() {
-    super(tetrisSong, 'bgmusic');
+    super(tetrisSong, 'bgmusic', true);
   }
 }
 
