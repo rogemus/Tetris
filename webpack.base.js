@@ -7,7 +7,7 @@ const path = require('path');
 module.exports = {
   entry: './src/index.ts',
   output: {
-    path: path.resolve(__dirname, 'build'),
+    path: path.resolve(__dirname, 'public'),
     filename: 'tetris.bundle.js',
   },
 
