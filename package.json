@@ -7,10 +7,10 @@
     "lint": "eslint ./src --ext .ts",
     "build:prod": "webpack --config webpack.prod.js",
     "build:dev": "webpack --config webpack.dev.js",
-    "start": "webpack serve --config webpack.dev.js",
+    "serve": "webpack serve --config webpack.dev.js",
     "server:dev": "nodemon server/main.js",
     "server:prod": "node server/main.js",
-    "prod": "yarn run build:prod && yarn run server:prod"
+    "start": "yarn run build:prod && yarn run server:prod"
   },
   "keywords": [],
   "author": "",
