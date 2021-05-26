@@ -14,4 +14,14 @@
     background: #f6921e;
     color: #26243a;
   }
+
+  &.btn-secundary {
+    background: #f6921e;
+    color: #26243a;
+
+    &:hover {
+      background: darken(#f6921e, 15);
+      color: #26243a;
+    }
+  }
 }

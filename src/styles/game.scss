@@ -5,6 +5,7 @@
 @import './results.scss';
 @import './title.scss';
 @import './widget.scss';
+@import './leaderboard.scss';
 
 .screens {
   max-width: 460px;
@@ -20,7 +21,6 @@
 }
 
 .game-screen,
-.options-screen,
 .start-screen,
 .end-screen {
   display: none;

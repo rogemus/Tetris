@@ -1,0 +1,42 @@
+.leaderboard {
+  &-form {
+    border-top: 3px dashed #f6921e;
+    border-bottom: 3px dashed #f6921e;
+    padding-top: 20px;
+    display: none;
+
+    &-input {
+      background: #26243a;
+      padding: 15px 30px;
+      border-radius: 5px;
+      color: #f6921e;
+      border: 0;
+      font-weight: bold;
+      font-size: 16px;
+      width: 100%;
+      margin-bottom: 10px;
+
+      &::placeholder {
+        color: darken(#fff, 50%);
+      }
+    }
+  }
+
+  &-list {
+    margin: 0;
+    padding: 15px;
+  }
+
+  &-item {
+    color: #f6921e;
+
+    &-content {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 15px;
+      border-bottom: 1px dashed #f6921e;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+  }
+}

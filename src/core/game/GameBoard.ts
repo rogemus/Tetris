@@ -79,7 +79,6 @@ class GameBoard extends Board {
   public restart(): void {
     this.createBoard();
     this.player.clear();
-    this.paused = false;
   }
 
   private isColliding(player: Player): boolean {
@@ -141,6 +140,7 @@ class GameBoard extends Board {
     if (this.isColliding(this.player)) {
       this.paused = true;
       this.theme.stop();
+
       dispatchEvent(END_GAME_EVENT, {
         score: this.player.score,
       });

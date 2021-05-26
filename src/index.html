@@ -10,17 +10,20 @@
 
 <body>
   <div class="screens">
-    <div class="start-screen show">
+
+
+    <div class="start-screen screen show">
       <div class="screen-content">
         <h1 class="title">Tetris</h1>
         <ul class="menu">
           <li class="menu-item" data-screen="game">Start Game</li>
-          <li class="menu-item" data-screen="options">Options</li>
           <li class="menu-item" data-screen="credits">Credits</li>
         </ul>
       </div>
     </div>
-    <div class="end-screen">
+
+
+    <div class="end-screen screen">
       <div class="screen-content">
         <h1 class="title">Game Over</h1>
         <div class="results">
@@ -34,13 +37,27 @@
             </div>
           </div>
         </div>
-        <button class="btn game-restart">Restart Game</button>
+        <div class="leaderboard">
+          <form class="leaderboard-form">
+            <input
+              id="username"
+              placeholder="Enter username"
+              class="leaderboard-form-input"
+              type="text"
+              maxlength="20"
+            />
+            <button type="submit" class="btn btn-secundary">
+              Submit Score
+            </button>
+          </form>
+        </div>
+        <ol class="leaderboard-list"></ol>
       </div>
+      <button class="btn game-restart">Restart Game</button>
     </div>
-    <div class="options-screen">
-      <div class="screen-content"></div>
-    </div>
-    <div class="game-screen">
+
+
+    <div class="game-screen screen">
       <div class="screen-content">
         <main class="game-board">
         </main>
@@ -67,6 +84,7 @@
         </aside>
       </div>
     </div>
+
   </div>
 </body>
 
