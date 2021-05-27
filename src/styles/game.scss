@@ -6,6 +6,8 @@
 @import './title.scss';
 @import './widget.scss';
 @import './leaderboard.scss';
+@import './credits.scss';
+@import './nav.scss';
 
 .screens {
   max-width: 460px;
@@ -20,9 +22,7 @@
   margin-left: 20px;
 }
 
-.game-screen,
-.start-screen,
-.end-screen {
+.screen {
   display: none;
 }
 
